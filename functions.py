@@ -1,20 +1,9 @@
-import pandas as pd ; import numpy as np
-import matplotlib.pyplot as plt ; import seaborn as sns
-import multiprocessing
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 import pathlib
-
-
-
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
-import time
-
-
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-from sklearn.model_selection import train_test_split
-import pathlib
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
@@ -48,10 +37,12 @@ def feature_engineering(df, meanAge):
     axis = 1, inplace = True)
     return df
 
+
 def label_encode_variable(df: pd.DataFrame, var: str = "Sex"):
   encoder = LabelEncoder()
   df[var] = encoder.fit_transform(df[var].values)
   return df
+
 
 def make_val_split(df):
     y = df["Survived"].values
